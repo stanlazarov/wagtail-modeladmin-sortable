@@ -6,7 +6,7 @@ Home-page: https://github.com/stanlazarov/wagtail-modeladmin-sortable
 Author: Stanislav Lazarov
 Author-email: stannlazarov@gmail.com
 License: MIT
-Download-URL: https://github.com/stanlazarov/wagtail-modeladmin-sortable/blob/master/dist/wagtail-modeladmin-sortable-0.0.1.tar.gz
+Download-URL: https://github.com/stanlazarov/wagtail-modeladmin-sortable/archive/refs/tags/v0.0.1.tar.gz
 Platform: UNKNOWN
 Classifier: Environment :: Web Environment
 Classifier: Framework :: Django
