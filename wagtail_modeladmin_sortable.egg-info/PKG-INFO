@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: wagtail-modeladmin-sortable
+Version: 0.0.1
+Summary: A Wagtail app for drag-and-drop ordering for objects in the admin interface
+Home-page: https://github.com/stanlazarov/wagtail-modeladmin-sortable
+Author: Stanislav Lazarov
+Author-email: stanislav.lazarov@pytek.bg
+License: MIT
+Download-URL: https://github.com/stanlazarov/wagtail-modeladmin-sortable/dist/wagtail-modeladmin-sortable-0.0.1.tar.gz
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.6
+License-File: LICENSE
+
+# wagtail-modeladmin-sortable
+
+Generic drag-and-drop ordering for objects in the Wagtail admin interface
+
+Quick start
+-----------
+
+Install **wagtail_modeladmin_sortable**
+
+```bash
+$ pip install git+ssh://git@gitlab.com/pytekbg/wagtail-adminsortable.git
+
+```    
+
+Add ``wagtail_modeladmin_sortable`` to ``INSTALLED_APPS`` the settings of your Django project:
+
+```python
+INSTALLED_APPS = [
+  ...
+  'wagtail_modeladmin_sortable',
+]
+```
+
+Integrate your models
+-----------
+
+```python
+from django.db import models
+from wagtail_modeladmin_sortable.models import AdminSortable
+
+
+class Example(AdminSortable):
+    title = models.CharField('Title', max_length=255, null=True, blank=True)
+
+    class Meta(AdminSortable.Meta):
+        verbose_name = "Example"
+        verbose_name_plural = "Examples"
+```
+
+
+#### In wagtail_hooks.py, add a mixin class to augment the functionality for sorting (be sure to put the mixin class before ModelAdmin):
+
+```python
+from wagtail.contrib.modeladmin.options import ModelAdmin
+from wagtail_modeladmin_sortable.mixins import ModelAdminSortableMixin
+
+
+class ExampleAdmin(ModelAdminSortableMixin, ModelAdmin):
+    pass
+```
+
+##### License
+
+Copyright &copy; 2021 Stanislav Lazarov.
+
+MIT licensed.
+

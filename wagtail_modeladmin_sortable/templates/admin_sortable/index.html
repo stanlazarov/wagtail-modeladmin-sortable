@@ -1,0 +1,11 @@
+{% extends 'modeladmin/index.html' %}
+{% block content_main %} {{block.super}}
+{% if model_admin.admin_sortable %}
+<input
+  type="hidden"
+  name="index_view_url"
+  value="{{ view.index_url }}"
+/>
+{% csrf_token %}
+{% endif %}
+{% endblock content_main %}

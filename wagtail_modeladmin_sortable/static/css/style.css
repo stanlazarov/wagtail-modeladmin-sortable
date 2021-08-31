@@ -1,0 +1,7 @@
+tbody tr:hover {
+    cursor: move;
+}
+
+.dropzone-placeholder {
+    background-color: lightgray;
+}
