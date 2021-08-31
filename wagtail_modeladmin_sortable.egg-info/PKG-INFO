@@ -37,7 +37,7 @@ Quick start
 Install **wagtail_modeladmin_sortable**
 
 ```bash
-$ pip install git+ssh://git@gitlab.com/pytekbg/wagtail-adminsortable.git
+$ pip install wagtail-modeladmin-sortable
 
 ```    
 
