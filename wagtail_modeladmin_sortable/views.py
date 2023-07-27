@@ -21,7 +21,7 @@ class SortableIndexView(FormView, IndexView):
     def form_valid(self, form):
         super(SortableIndexView, self).form_valid(form)
 
-        if self.request.is_ajax():
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
             order_ids = self.request.POST.getlist("items[]")
             app_label = self.model_admin.model._meta.app_label
             model_label = self.model_admin.model.__name__
